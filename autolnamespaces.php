@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 function autoloadCar($ClassName)
 {
     $ClassFilePath = './MyCar/' . $ClassName . '.php';

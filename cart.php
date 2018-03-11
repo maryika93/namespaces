@@ -27,8 +27,6 @@ class Cart{
 
         if(array_key_exists($product->title, $this->countProduct)){
             $this->countProduct[$product->title]->numberProduct++;
-
-            echo 'Товар добавлен в корзину<br>';
         }
         else{
             $this->countProduct[$product->title] = $product;
@@ -41,7 +39,6 @@ class Cart{
             if($this->countProduct[$product->title]->numberProduct > 0){
 
                 $this->countProduct[$product->title]->numberProduct--;
-                echo 'Товар ' . $this->countProduct[$product->title]->title. ' удалён из корзины<br>';
             }
         }
     }
@@ -50,19 +47,12 @@ class Cart{
         $resCountProduct = 0;
 
         foreach($this->countProduct as $key => $value){
-            echo 'Товар ' . $key . ', Количество: ' . $value->numberProduct . '</br>';
-
+                $_SESSION['key'] = $this->countProduct;
             $resCountProduct = $resCountProduct + $value->numberProduct;
         }
-        echo 'Общее количество товаров: ' . $resCountProduct;
+        $_SESSION['2'] = $resCountProduct;
     }
-
 }
-
-Class Order extends Cart {
-
-}
-$MyOrder = new Order();
 
 class Car extends Goods
 {
@@ -94,11 +84,20 @@ $myCart->addProduct($Pilot);
 $myCart->addProduct($Pilot);
 $myCart->addProduct($Toshiba);
 $myCart->addProduct($mersedes);
-
-echo '</br>';
-
 $myCart->showAllProduct();
+$_SESSION['3'] = $myCart->sum();
 
-echo '</br>';
-
-echo 'На сумму: ' . $myCart->sum();
+Class Order extends Cart
+{
+    public function show()
+    {
+        echo "<h1> Чек </h1>";
+        foreach ($_SESSION['key'] as $key) {
+            echo 'Товар ' . $key->title . ', Количество: ' . $key->numberProduct. '</br>';
+        }
+        echo 'Общее количество товаров: ' . $_SESSION['2']. '</br>';
+        echo 'К оплате: ' . $_SESSION['3'];
+    }
+}
+$MyOrder = new Order();
+$MyOrder->show();

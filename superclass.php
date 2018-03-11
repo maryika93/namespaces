@@ -1,7 +1,6 @@
 <?php
 
-abstract class Goods
-{
+abstract class Goods{
     public $color = 'Black';
     public $size = 'small';
     public $price = '1000';
@@ -15,31 +14,30 @@ abstract class Goods
 }
 
 
-class Car extends Goods
-{
+class Car extends Goods{
     public $box = 'auto';
     public function changeBox($box){
-        $this->box->$box;
+        $this->box = $box;
     }
     public function changeColor($color)
     {
-        parent::changeColor($color);
+        $this->color = $color;
     }
     public function changeSize($size)
     {
-        parent::changeSize($size);
+        $this->size = $size;
     }
     public function changePrice($price)
     {
-        parent::changePrice($price);
+        $this->price = $price;
     }
     public function changeDiskont($discont)
     {
-        parent::changeDiskont($discont);
+        $this->discont = $discont;
     }
     public function changePop($pop)
     {
-        parent::changePop($pop);
+        $this->pop = $pop;
     }
 }
 $mersedes = new Car();
@@ -53,27 +51,26 @@ $lada->pop;
 $mersedes->changeSize('big');
 $mersedes->changeDiskont('20');
 
-class TV extends Goods
-{
+class TV extends Goods{
     public function changeColor($color)
     {
-        parent::changeColor($color);
+        $this->color = $color;
     }
     public function changeSize($size)
     {
-        parent::changeSize($size);
+        $this->size = $size;
     }
     public function changePrice($price)
     {
-        parent::changePrice($price);
+        $this->price = $price;
     }
     public function changeDiskont($discont)
     {
-        parent::changeDiskont($discont);
+        $this->discont = $discont;
     }
     public function changePop($pop)
     {
-        parent::changePop($pop);
+        $this->pop = $pop;
     }
 }
 $LG = new TV();
@@ -86,27 +83,26 @@ $Toshiba->changePop('unpopular');
 $LG->changePrice('200');
 $Toshiba->changeColor('red');
 
-class Pen extends Goods
-{
+class Pen extends Goods{
     public function changeColor($color)
     {
-        parent::changeColor($color);
+        $this->color = $color;
     }
     public function changeSize($size)
     {
-        parent::changeSize($size);
+        $this->size = $size;
     }
     public function changePrice($price)
     {
-        parent::changePrice($price);
+        $this->price = $price;
     }
     public function changeDiskont($discont)
     {
-        parent::changeDiskont($discont);
+        $this->discont = $discont;
     }
     public function changePop($pop)
     {
-        parent::changePop($pop);
+        $this->pop = $pop;
     }
 }
 $Parker = new Pen();
@@ -118,32 +114,30 @@ $Pilot->changePrice('100');
 $Pilot->pop;
 $Parker->changeDiskont('5');
 
-class Duck extends Goods
-{
+class Duck extends Goods{
     public $gend = 'drake';
-    public function changeGend($gend)
-    {
-        $this->gend->$gend;
+    public function changeGend($gend){
+        $this->gend = $gend;
     }
     public function changeColor($color)
     {
-        parent::changeColor($color);
+        $this->color = $color;
     }
     public function changeSize($size)
     {
-        parent::changeSize($size);
+        $this->size = $size;
     }
     public function changePrice($price)
     {
-        parent::changePrice($price);
+        $this->price = $price;
     }
     public function changeDiskont($discont)
     {
-        parent::changeDiskont($discont);
+        $this->discont = $discont;
     }
     public function changePop($pop)
     {
-        parent::changePop($pop);
+        $this->pop = $pop;
     }
 }
 $Donald = new Duck();
